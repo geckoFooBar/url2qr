@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
+Disallow: /images/
 Sitemap: https://url-to-qr-convert.netlify.app/
