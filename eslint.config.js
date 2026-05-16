@@ -36,9 +36,6 @@ module.exports = defineConfig([
       }
       ],
       "@typescript-eslint/no-explicit-any": "off",
-      "@vitest/browser-playwright": ["error", {
-        "allow": ["chrome", "chromium", "edge", "firefox", "webkit"]
-      }]
     },
   },
   {
