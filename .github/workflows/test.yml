@@ -22,10 +22,10 @@ jobs:
           node-version: "22" 
 
       - name: Update & Install Dependencies
-        run: npm update && npm install
+        run: npm ci
 
       - name: Run ESLint
-        run: ng lint
+        run: npm run lint
     
   run-tests:
     runs-on: ubuntu-latest
@@ -43,4 +43,7 @@ jobs:
         run: npm update && npm install
 
       - name: Run ESLint
-        run: ng test
+        run: npm test -- --watch=false --browsers=ChromeHeadless
+
+      - name: Build Production
+        run: npm run build -- --configuration production
