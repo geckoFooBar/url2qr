@@ -6,11 +6,9 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterModule.forRoot([])
-      ],
-      declarations: [
-        App
-      ],
+        RouterModule.forRoot([]),
+        App // Standalone component goes in imports
+      ]
     }).compileComponents();
   });
 
@@ -20,10 +18,12 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the generator component', async () => {
     const fixture = TestBed.createComponent(App);
+    fixture.detectChanges(); 
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, video2qr');
+    
+    expect(compiled.querySelector('h2')?.textContent).toContain('Generate QR Code');
   });
 });
