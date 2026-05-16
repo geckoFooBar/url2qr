@@ -1,0 +1,46 @@
+name: Quality  & Testing Workflow
+
+on: 
+    push:
+        branches: 
+            - release-1.0
+    pull_request:
+        branches:
+            - release-1.0
+
+jobs:
+  lint-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22" 
+
+      - name: Update & Install Dependencies
+        run: npm update && npm install
+
+      - name: Run ESLint
+        run: ng lint
+    
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22" 
+
+      - name: Update & Install Dependencies
+        run: npm update && npm install
+
+      - name: Run ESLint
+        run: ng test
